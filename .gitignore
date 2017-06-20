@@ -6,3 +6,4 @@ build
 npm-debug*
 .nyc_output
 coverage
+.idea
