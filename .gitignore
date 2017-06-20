@@ -1,0 +1,8 @@
+dist
+node_modules
+.node-version
+build
+.tmp
+npm-debug*
+.nyc_output
+coverage
