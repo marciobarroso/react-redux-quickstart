@@ -55,7 +55,6 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
@@ -66,7 +65,7 @@
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
     "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^4.3.0",
+    "redux-promise-middleware": "^4.2.1",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.18.2"
   },

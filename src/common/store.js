@@ -9,7 +9,7 @@ import reducers from '../reducers';
 // combine middlewares
 const middleware = applyMiddleware(
   promise(), thunk, // to do asynch calls
-  logger // log messages
+  logger, // log messages
 );
 
 // create store

@@ -1,12 +1,11 @@
 {
   "presets": [
     "es2015",
-    "react"
+    "react",
   ],
   "plugins": [
     "react-html-attrs",
     "transform-object-rest-spread",
     "transform-class-properties",
-    "transform-decorators-legacy"
   ]
 }
