@@ -1,6 +1,6 @@
 {
-  "name": "react-bare-app",
-  "version": "1.0.0",
+  "name": "react-redux-quickstart",
+  "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
