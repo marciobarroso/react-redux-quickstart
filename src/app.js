@@ -14,7 +14,7 @@ class App extends Component {
     const that = this;
     setTimeout(() => {
       that.props.dispatch(UserActions.fetchUsers());
-    }, 3000);
+    }, that.props.delay);
   }
 
   // render method
@@ -38,5 +38,6 @@ App.propTypes = {
 // in the component scope as a property and export the connected component
 export default connect(store => ({
     response: store.userState.response,
+    delay: 3000,
   }),
 )(App);

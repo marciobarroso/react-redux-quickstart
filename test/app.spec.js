@@ -8,7 +8,8 @@ import App from '../src/app';
 describe('Component <App />', () => {
 
   const props = {
-    response: loading()
+    response: loading(),
+    delay: 0,
   };
 
   const wrapper = shallow(<App {...props} />);
