@@ -1,46 +1,41 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const path = require('path');
 
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const nodeModules = path.resolve('./node_modules');
+
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(__dirname, 'src', 'main.js')],
-  devtool: 'cheap-source-map',
+  entry: path.resolve('./src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-      'node_modules',
-    ],
+    path: path.resolve('./dist'),
+    filename: 'app.bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
+        enforce: 'pre',
+        test: /\.js$/, loader: 'eslint-loader', exclude: nodeModules
       },
-      {test: /\.json$/, loader: 'json-loader'},
-      { test: /\.css$/, loader: 'style-loader' },
-      { test: /\.css$/, loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[local]'
-        }
+      {test: /\.js$/, use: 'babel-loader', exclude: nodeModules},
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
+          }
+        ]
       }
-    ],
-  },
-  devServer: {
-    proxy: {
-      '/ws/**': {
-        target: 'http://localhost:8882',
-      },
-    },
+    ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`,
-    }),
+    new StyleLintPlugin({files: 'src/**/*.css'}),
+    new HtmlWebpackPlugin({template: 'src/index.html'})
   ],
 };

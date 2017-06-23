@@ -1,0 +1,28 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Helvetica, Aria, sans-serif;
+}
+
+* {
+  box-sizing: inherit;
+  font: inherit;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+  font: inherit;
+}

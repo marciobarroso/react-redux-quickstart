@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import UserActions from '../actions/userActions';
+import UserActions from './actions/userActions';
 
-import UserList from './userList';
+import UserList from './components/userList';
 
 // don't export the connected component using export default here
 class App extends Component {
@@ -20,13 +20,14 @@ class App extends Component {
   // render method
   render() {
     return (
-      <UserList response={this.props.response} />
+      <div className="container-fluid">
+        <UserList response={this.props.response} />
+      </div>
     );
   }
 }
 
 App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   response: PropTypes.shape({
     status: PropTypes.string.isRequired,
   }).isRequired,
@@ -36,6 +37,6 @@ App.propTypes = {
 // here we need to set everything we need to handle
 // in the component scope as a property and export the connected component
 export default connect(store => ({
-  response: store.userState.response,
-}),
+    response: store.userState.response,
+  }),
 )(App);

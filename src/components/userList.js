@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Status } from '../common/responseStatus';
-import './userList.css';
+import {Status} from '../common/responseStatus';
+import styles from  './userList.css';
 
 const fetchUsers = (users) => {
-  const rows = users.map( user =>
-    <tr key={user.id}>
-      <td key={user.id}>{user.firstname} { user.lastname }</td>
-      <td key={user.email}>{ user.email }</td>
-      <td key={user.phone}>{ user.phone }</td>
-      <td key={user.company}>{ user.company }</td>
-      <td key={user.address}>{ user.address }</td>
-    </tr>
+  const rows = users.map(user =>
+    (
+      <tr key={user.id}>
+        <td key={user.id}>{user.firstname} { user.lastname }</td>
+        <td key={user.email}>{ user.email }</td>
+        <td key={user.phone}>{ user.phone }</td>
+        <td key={user.company}>{ user.company }</td>
+        <td key={user.address}>{ user.address }</td>
+      </tr>
+    )
   );
 
   return (
@@ -27,7 +29,7 @@ const fetchUsers = (users) => {
         </tr>
       </thead>
       <tbody>
-      { rows }
+        { rows }
       </tbody>
     </table>
   );
@@ -36,7 +38,7 @@ const fetchUsers = (users) => {
 const UserList = ({response}) => {
   switch (response.status) {
     case Status.LOADING:
-      return <div className="user_list_loader"></div>;
+      return <div className={styles.loader} />;
     case Status.ERROR:
       return <div>{ response.status.errorMessage }</div>;
     case Status.EMPTY:
