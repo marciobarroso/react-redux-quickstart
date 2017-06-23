@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
@@ -12,8 +12,14 @@ const middleware = applyMiddleware(
   logger, // log messages
 );
 
+// compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 // create store
-const store = createStore(reducers, middleware);
+const store = createStore(
+	reducers, 
+	composeEnhancers(middleware)
+);
 
 // export
 export default store;
