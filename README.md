@@ -1,4 +1,4 @@
-react-bare-app
+react-redux-quickstart
 ===================
 
 This is a **minimal** React application to give me a starting point for future projects, and illustrate some basic tooling. I am purposefully neglecting many libraries and techniques that you would find in a full-featured React application, such as state management, code-splitting, or server-side rendering. While this things are important, they are not required to get up and running responsibly.

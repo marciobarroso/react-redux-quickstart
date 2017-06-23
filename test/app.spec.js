@@ -1,15 +1,22 @@
 import {shallow} from 'enzyme';
-import {expect} from 'chai';
+import chai, { expect } from 'chai';
+import { spy, stub } from 'sinon';
+import sinonChai from 'sinon-chai';
+import chaiEnzyme from 'chai-enzyme';
 import React from 'react';
-import { loading } from '../src/common/responseStatus';
+import {loading} from '../src/common/responseStatus';
 
-import App from '../src/app';
+import { App } from '../src/app';
+
+chai.use(sinonChai);
+chai.use(chaiEnzyme());
 
 describe('Component <App />', () => {
+  const dispatch = spy();
 
   const props = {
+    dispatch: dispatch,
     response: loading(),
-    delay: 0,
   };
 
   const wrapper = shallow(<App {...props} />);

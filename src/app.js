@@ -6,15 +6,11 @@ import UserActions from './actions/userActions';
 
 import UserList from './components/userList';
 
-// don't export the connected component using export default here
-class App extends Component {
+export class App extends Component {
 
   // react lifecycle: Executes before the component render
   componentWillMount() {
-    const that = this;
-    setTimeout(() => {
-      that.props.dispatch(UserActions.fetchUsers());
-    }, that.props.delay);
+    this.props.dispatch(UserActions.fetchUsers());
   }
 
   // render method
@@ -28,6 +24,7 @@ class App extends Component {
 }
 
 App.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   response: PropTypes.shape({
     status: PropTypes.string.isRequired,
   }).isRequired,
@@ -38,6 +35,5 @@ App.propTypes = {
 // in the component scope as a property and export the connected component
 export default connect(store => ({
     response: store.userState.response,
-    delay: 3000,
   }),
 )(App);

@@ -35,6 +35,8 @@
     "mocha": "^3.3.0",
     "react-addons-test-utils": "^15.6.0",
     "react-test-renderer": "^15.5.4",
+    "sinon": "^2.3.5",
+    "sinon-chai": "^2.11.0",
     "style-loader": "^0.17.0",
     "stylelint": "^7.10.1",
     "stylelint-config-css-modules": "^1.0.0",
