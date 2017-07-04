@@ -1,11 +1,9 @@
-export const Status = {
-  EMPTY: 'EMPTY',
-  LOADING: 'LOADING',
-  SUCCESS: 'SUCCESS',
-  ERROR: 'ERROR',
-};
+export const ERROR = 'ERROR';
+export const LOADING = 'LOADING';
+export const SUCCESS = 'SUCCESS';
+export const EMPTY= 'EMPTY';
 
-export const empty = () => ({ status: Status.EMPTY });
-export const loading = () => ({ status: Status.LOADING });
-export const success = data => ({ status: Status.SUCCESS, data });
-export const error = errorMessage => ({ status: Status.ERROR, errorMessage });
+export const empty = () => ({ status: EMPTY });
+export const loading = () => ({ status: LOADING });
+export const success = data => ({ status: SUCCESS, data });
+export const error = errorMessage => ({ status: ERROR, errorMessage });

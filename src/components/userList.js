@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Status} from '../common/responseStatus';
+import * as ResponseStatus from '../common/responseStatus';
 import styles from  './userList.css';
 
 const fetchUsers = (users) => {
@@ -37,13 +37,13 @@ const fetchUsers = (users) => {
 
 const UserList = ({response}) => {
   switch (response.status) {
-    case Status.LOADING:
+    case ResponseStatus.LOADING:
       return <div className={styles.loader} />;
-    case Status.ERROR:
+    case ResponseStatus.ERROR:
       return <div>{ response.status.errorMessage }</div>;
-    case Status.EMPTY:
+    case ResponseStatus.EMPTY:
       return <div>Data not found</div>;
-    case Status.SUCCESS:
+    case ResponseStatus.SUCCESS:
       return fetchUsers(response.data);
     default:
       return null;
