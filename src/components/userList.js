@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import * as ResponseStatus from '../common/responseStatus';
-import styles from  './userList.css';
+
+import './userList.scss'
 
 const fetchUsers = (users) => {
   const rows = users.map(user =>
@@ -38,7 +39,7 @@ const fetchUsers = (users) => {
 const UserList = ({response}) => {
   switch (response.status) {
     case ResponseStatus.LOADING:
-      return <div className={styles.loader} />;
+      return <div className='loader' />;
     case ResponseStatus.ERROR:
       return <div>{ response.status.errorMessage }</div>;
     case ResponseStatus.EMPTY:
