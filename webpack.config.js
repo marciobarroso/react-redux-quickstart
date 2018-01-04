@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: ['babel-polyfill', path.resolve('./src/index.js')],
   output: {
-    path: path.resolve('./dist'),
+    path: path.resolve('./public'),
     filename: 'bundle-[hash].js',
     publicPath: '/'
   },

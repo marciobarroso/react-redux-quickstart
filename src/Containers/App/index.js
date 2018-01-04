@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import UserActions from './actions/userActions';
+import UserActions from '../../Actions/UserActions/index'
 
-import UserList from './components/userList';
+import UserList from '../../Components/UserList/index'
+
+import './styles.scss'
 
 export class App extends Component {
 
   // react lifecycle: Executes before the component render
   componentWillMount() {
-    this.props.dispatch(UserActions.fetchUsers());
+    this.props.dispatch(UserActions.fetchUsers())
   }
 
   // render method
@@ -19,7 +21,7 @@ export class App extends Component {
       <div className="container-fluid">
         <UserList response={this.props.response} />
       </div>
-    );
+    )
   }
 }
 
@@ -36,4 +38,4 @@ App.propTypes = {
 export default connect(store => ({
     response: store.userState.response,
   }),
-)(App);
+)(App)

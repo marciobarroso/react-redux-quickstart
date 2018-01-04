@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import * as ResponseStatus from '../common/responseStatus';
+import ResponseStatus from '../../Commons/ResponseStatus'
 
-import './userList.scss'
+import './styles.scss'
 
 const fetchUsers = (users) => {
   const rows = users.map(user =>
@@ -16,7 +16,7 @@ const fetchUsers = (users) => {
         <td key={user.address}>{ user.address }</td>
       </tr>
     )
-  );
+  )
 
   return (
     <table className="table table-striped">
@@ -33,28 +33,28 @@ const fetchUsers = (users) => {
         { rows }
       </tbody>
     </table>
-  );
-};
+  )
+}
 
 const UserList = ({response}) => {
   switch (response.status) {
     case ResponseStatus.LOADING:
-      return <div className='loader' />;
+      return <div className='loader' />
     case ResponseStatus.ERROR:
-      return <div>{ response.status.errorMessage }</div>;
+      return <div>{ response.status.errorMessage }</div>
     case ResponseStatus.EMPTY:
-      return <div>Data not found</div>;
+      return <div>Data not found</div>
     case ResponseStatus.SUCCESS:
-      return fetchUsers(response.data);
+      return fetchUsers(response.data)
     default:
-      return null;
+      return null
   }
-};
+}
 
 UserList.propTypes = {
   response: PropTypes.shape({
     status: PropTypes.string.isRequired,
   }).isRequired,
-};
+}
 
-export default UserList;
+export default UserList
