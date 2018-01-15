@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import UserActions from '../../Actions/UserActions/index'
 
-import UserList from '../../Components/UserList/index'
+import UserContainer from '../../Containers/UserContainer'
 
 import './styles.scss'
 
@@ -19,7 +19,7 @@ export class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <UserList response={this.props.response} />
+        <UserContainer response={this.props.response} />
       </div>
     )
   }

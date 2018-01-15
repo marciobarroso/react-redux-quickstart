@@ -4,9 +4,9 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --progress --colors -d",
-    "start": "webpack-dev-server --progress --colors -d",
-    "test": "mocha -c --require babel-register --require 'css-modules-require-hook/preset' --recursive ./test",
+    "build": "webpack --progress --colors -d --env=dev",
+    "start": "webpack-dev-server --port 8081 --progress --colors -d --env=dev",
+    "test": "mocha -c --require babel-register --require test/hooks/css-modules-compiler.js -r ./test/setup.js --require babel-polyfill --recursive ./test/unit",
     "test:watch": "yarn test -- --watch"
   },
   "devDependencies": {
@@ -47,10 +47,13 @@
     "stylelint-config-standard": "^16.0.0",
     "stylelint-webpack-plugin": "^0.7.0",
     "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^2.5.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "jsdom": "^11.5.1",
+    "moment": "^2.20.1",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
